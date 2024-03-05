@@ -22,7 +22,8 @@ docker login
 docker push danieladoni01/service.api
 
 ***** Install *****
-cd C:\PROJECTS\Dana\PAD3\Service\install
+Lansam CMD cd la mapa unde sunt fisierele de mai sus (cd C:\PROJECTS\Dana\PAD3\Service\install)
+Lansam comenzile:
 docker-compose build
 docker-compose up
 

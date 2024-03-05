@@ -28,6 +28,7 @@ docker-compose build
 docker-compose up
 
 ***** Service *****
+Link-ul de lansare a serviciului dupa instalare
 http://localhost:7101/swagger/index.html
 
 ***** Postman Collection *****

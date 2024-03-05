@@ -21,7 +21,6 @@ docker tag pad/service.api:linux-latest danieladoni01/service.api
 docker login
 docker push danieladoni01/service.api
 
-
 ***** Install *****
 cd C:\PROJECTS\Dana\PAD3\Service\install
 docker-compose build
@@ -29,3 +28,6 @@ docker-compose up
 
 ***** Service *****
 http://localhost:7101/swagger/index.html
+
+***** Postman Collection *****
+https://github.com/DoniDaniela/PAD3/blob/main/PAD3.postman_collection.json

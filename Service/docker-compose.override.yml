@@ -1,0 +1,90 @@
+version: '3.4'
+
+# The default docker-compose.override file can use the "localhost" as the external name for testing web apps within the same dev machine.
+# The ESHOP_EXTERNAL_DNS_NAME_OR_IP environment variable is taken, by default, from the ".env" file defined like:
+#     ESHOP_EXTERNAL_DNS_NAME_OR_IP=localhost
+# but values present in the environment vars at runtime will always override those defined inside the .env file
+# An external IP or DNS name has to be used (instead localhost and the 10.0.75.1 IP) when testing the Web apps and the Xamarin apps from remote machines/devices using the same WiFi, for instance.
+
+services:
+  sqldata1:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5431:1433"
+    volumes:
+      - pad-sqldata1:/var/opt/mssql
+
+  sqldata2:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5432:1433"
+    volumes:
+      - pad-sqldata2:/var/opt/mssql
+
+  sqldata3:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+    volumes:
+      - pad-sqldata3:/var/opt/mssql
+
+  sqldata4:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+    volumes:
+      - pad-sqldata4:/var/opt/mssql
+
+  sqldata5:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5435:1433"
+    volumes:
+      - pad-sqldata5:/var/opt/mssql
+
+  mongo:
+    ports:
+      - "27017:27017"
+
+  redis:
+    ports:
+      - "6379:6379"
+
+  service-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Kestrel__Endpoints__HTTP__Url=http://0.0.0.0:80
+      - ConnectionStrings__Database1=Server=sqldata1;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true;MultipleActiveResultSets=True
+      - ConnectionStrings__Database2=Server=sqldata2;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true;MultipleActiveResultSets=True
+      - ConnectionStrings__Database3=Server=sqldata3;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true;MultipleActiveResultSets=True
+      - ConnectionStrings__Database4=Server=sqldata4;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true;MultipleActiveResultSets=True
+      - ConnectionStrings__Database5=Server=sqldata5;Database=master;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true;MultipleActiveResultSets=True
+      - BookStoreDatabase__ConnectionString=mongodb://mongo:27017
+      - BookStoreDatabase__DatabaseName=BookStore
+      - BookStoreDatabase__BooksCollectionName=Books
+      - RedisURL=redis:6379
+      - PATH_BASE=/service-api
+    ports:
+      - "7101:80"
+
+volumes:
+  pad-sqldata1:
+    external: false
+  pad-sqldata2:
+    external: false
+  pad-sqldata3:
+    external: false
+  pad-sqldata4:
+    external: false
+  pad-sqldata5:
+    external: false

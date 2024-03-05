@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+
+  sqldata1:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+  sqldata2:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+  sqldata3:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+  sqldata4:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+  sqldata5:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+  
+  redis:
+    image: redis
+
+  mongo:
+    image: mongo
+
+  service-api:
+    image: ${REGISTRY:-pad}/service.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Service/Dockerfile
+    depends_on:
+      - sqldata1
+      - sqldata2
+      - sqldata3
+      - sqldata4
+      - sqldata5
+      - mongo
+      - redis

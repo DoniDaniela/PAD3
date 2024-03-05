@@ -12,7 +12,8 @@ in GUI configuram accesul local la Redis
 localhost@6379
 
 ***** Docker compose *****
-cd C:\PROJECTS\Dana\PAD3\Service
+Lansam CMD cd la mapa unde sunt fisierele de mai sus (cd C:\PROJECTS\Dana\PAD3\Service)
+Lansam comenzile:
 docker-compose build
 docker-compose up
 
@@ -22,8 +23,7 @@ docker login
 docker push danieladoni01/service.api
 
 ***** Install *****
-Lansam CMD cd la mapa unde sunt fisierele de mai sus (cd C:\PROJECTS\Dana\PAD3\Service\install)
-Lansam comenzile:
+cd C:\PROJECTS\Dana\PAD3\Service\install
 docker-compose build
 docker-compose up
 

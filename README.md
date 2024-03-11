@@ -7,9 +7,9 @@ In CMD, write cd and the path where the folder with the files is, and give the c
 To test the service, download the postman collection and launch it in the Postman application (https://github.com/DoniDaniela/PAD3/blob/main/PAD3.postman_collection.json)
 
 ***** Redis *****
-Pentru a vedea datele din redis avem nevoie de un Redis GUI
+To see the data from redis we need a Redis GUI
 https://github.com/qishibo/AnotherRedisDesktopManager/releases
-in GUI configuram accesul local la Redis pentru adresa: localhost@6379
+in the GUI we configure local access to Redis for the address: localhost@6379
 
 ***** Docker hub *****
 https://hub.docker.com/repository/docker/danieladoni01/service.api

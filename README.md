@@ -15,6 +15,6 @@ in GUI configuram accesul local la Redis pentru adresa: localhost@6379
 https://hub.docker.com/repository/docker/danieladoni01/service.api
 
 ***** Test with Swagger*****
-Link-ul de lansare a serviciului dupa instalare
+The link to launch the service after installation
 http://localhost:7101/swagger/index.html
 

@@ -1,35 +1,20 @@
-***** Redis *****
-Instructiunile de instalare a serviciului Redis le gasim pe site-ul
-https://hub.docker.com/_/redis
-1. Instalam Redis, in CMD lasam comanda
-docker pull redis
-2. Lansam Redis, in CMD lasam comanda
-docker run --name redis-cache -p 6379:6379 -d redis
+***** Install *****
+The installation files are in the "install" folder in github ( https://github.com/DoniDaniela/PAD3/tree/main/Service/install ) 
+Download docker-compose.override.yml and docker-compose.yml files from github from the install folder, download and save in a local folder on Local Disk (C:) , open command prompt. (make sure you have docker desktop)
+In CMD, write cd and the path where the folder with the files is, and give the commands: docker-compose build and docker-compose up. (it might take some minutes) after the command has been run, check in docker desktop if all the containers are launched.
 
+***** Postman Collection *****
+To test the service, download the postman collection and launch it in the Postman application (https://github.com/DoniDaniela/PAD3/blob/main/PAD3.postman_collection.json)
+
+***** Redis *****
 Pentru a vedea datele din redis avem nevoie de un Redis GUI
 https://github.com/qishibo/AnotherRedisDesktopManager/releases
-in GUI configuram accesul local la Redis
-localhost@6379
-
-***** Docker compose *****
-Lansam CMD cd la mapa unde sunt fisierele de mai sus (cd C:\PROJECTS\Dana\PAD3\Service)
-Lansam comenzile:
-docker-compose build
-docker-compose up
+in GUI configuram accesul local la Redis pentru adresa: localhost@6379
 
 ***** Docker hub *****
-docker tag pad/service.api:linux-latest danieladoni01/service.api
-docker login
-docker push danieladoni01/service.api
+https://hub.docker.com/repository/docker/danieladoni01/service.api
 
-***** Install *****
-cd C:\PROJECTS\Dana\PAD3\Service\install
-docker-compose build
-docker-compose up
-
-***** Service *****
+***** Test with Swagger*****
 Link-ul de lansare a serviciului dupa instalare
 http://localhost:7101/swagger/index.html
 
-***** Postman Collection *****
-https://github.com/DoniDaniela/PAD3/blob/main/PAD3.postman_collection.json

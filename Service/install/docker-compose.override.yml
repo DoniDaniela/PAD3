@@ -58,7 +58,7 @@ services:
 
   redis:
     ports:
-      - "6379:6379"
+      - "5436:5436"
 
   service-api:
     environment:
